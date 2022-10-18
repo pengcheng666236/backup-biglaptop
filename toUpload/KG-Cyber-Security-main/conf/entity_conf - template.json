@@ -1,0 +1,141 @@
+[
+  {
+    // 实体的类型
+    "Type": "Technique",
+    // 代表的是来自哪种json对象
+    "Json_type": [
+      "attack-pattern"
+    ],
+    // 作为标识的属性名
+    "Key": [
+      "stix_id"
+    ],
+    "Properties": {
+      "Name": "name",
+      "ID": "get_ID(object)",
+      "Created_by": "get_create_by(object)",
+      "stix_id": "id",
+      "Subtechnique": "x_mitre_is_subtechnique",
+      "Version": "x_mitre_version",
+      "Last_Modified": "modified",
+      "Created": "created",
+      "Platform": "x_mitre_platforms",
+      "Domain": "x_mitre_domains",
+      "Description": "description",
+      "Detection": "x_mitre_detection"
+    },
+    "PropertyEntity": [
+      {
+        "Type": "Reference",
+        "Relationship": "refer",
+        "Key": [
+          "Url",
+          "Name"
+        ],
+        "Properties": {
+          "Name": "external_references{}source_name",
+          "Url": "external_references{}url",
+          "Description": "external_references{}description"
+        }
+      },
+      {
+        "Type": "Platform",
+        "Key": [
+          "Name"
+        ],
+        "Relationship": "applyto",
+        "Properties": {
+          "Name": "x_mitre_platforms"
+        }
+      },
+      {
+        "Type": "Defense_Bypassed",
+        "Relationship": "bypass",
+        "Key": [
+          "Name"
+        ],
+        "Properties": {
+          "Name": "x_mitre_defense_bypassed"
+        }
+      },
+      {
+        "Type": "Impact_Type",
+        "Relationship": "impact",
+        "Key": [
+          "Name"
+        ],
+        "Properties": {
+          "Name": "x_mitre_impact_type"
+        }
+      },
+      {
+        "Type": "Permission",
+        "Relationship": "required",
+        "Key": [
+          "Name"
+        ],
+        "Properties": {
+          "Name": "x_mitre_permissions_required"
+        }
+      },
+      {
+        "Type": "Permission",
+        "Relationship": "impact",
+        "Key": [
+          "Name"
+        ],
+        "Properties": {
+          "Name": "gain"
+        }
+      }
+    ]
+  },
+  {
+    "Type": "Group",
+    "Json_type": [
+      "intrusion-set"
+    ],
+    "Key": [
+      "Name",
+      "stix_id"
+    ],
+    "Properties": {
+      "Name": "name",
+      "ID": "get_ID(object)",
+      "Created_by": "get_create_by(object)",
+      "stix_id": "id",
+      "Version": "x_mitre_version",
+      "Last_Modified": "modified",
+      "Created": "created",
+      "Platform": "x_mitre_platforms",
+      "Domain": "x_mitre_domains",
+      "contributors": "x_mitre_contributors",
+      "Description": "description"
+    },
+    "PropertyEntity": [
+      {
+        "Type": "Reference",
+        "Relationship": "refer",
+        "Key": [
+          "Url",
+          "Name"
+        ],
+        "Properties": {
+          "Name": "external_references{}source_name",
+          "Url": "external_references{}url",
+          "Description": "external_references{}description"
+        }
+      },
+      {
+        "Type": "Group",
+        "Relationship": "applyto",
+        "Key": [
+          "Name"
+        ],
+        "Properties": {
+          "Name": "aliases"
+        }
+      }
+    ]
+  }
+]

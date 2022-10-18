@@ -1,0 +1,143 @@
+[
+  {
+    "Type": "Analytic",
+    "Json_type": [
+      "analytics"
+    ],
+    "Key": [
+      "ID"
+    ],
+    "Properties": {
+      "ID": "id",
+      "Description": "Description",
+      "Name": "title",
+      "Submission_date": "submission_date",
+      "Information_domain": "information_domain",
+      "Platforms": "platforms",
+      "Subtypes": "subtypes",
+      "Type": "analytic_types",
+      "Implementations": "implementations",
+      "Unit_tests": "unit_tests"
+    },
+    "PropertyEntity": [
+      {
+        "Type": "Field",
+        "Key": [
+          "Label"
+        ],
+        "Relationship": "related",
+        "Properties": {
+          "Label": "data_model_references_fields"
+        }
+      },
+      {
+        "Type": "Action",
+        "Key": [
+          "Label"
+        ],
+        "Relationship": "related",
+        "Properties": {
+          "Label": "data_model_references_actions"
+        }
+      },
+      {
+        "Type": "Technique",
+        "Key": [
+          "ID"
+        ],
+        "Relationship": "analysed",
+        "Properties": {
+          "ID": "coverage{}technique"
+        },
+        "Relationship_Properties": {
+          "Coverage": "coverage{}coverage"
+        }
+      }
+    ]
+  },
+  {
+    "Type": "DataModel",
+    "Json_type": [
+      "data_model"
+    ],
+    "Key": [
+      "Name"
+    ],
+    "Properties": {
+      "Description": "description",
+      "Name": "name"
+    },
+    "PropertyEntity": [
+      {
+        "Type": "Action",
+        "Key": [
+          "Label"
+        ],
+        "Relationship": "belong",
+        "Reverse": "True",
+        "Properties": {
+          "Name": "actions{}name",
+          "Description": "actions{}description",
+          "Label": "actions{}label"
+        }
+      },
+      {
+        "Type": "Field",
+        "Key": [
+          "Label"
+        ],
+        "Relationship": "belong",
+        "Reverse": "True",
+        "Properties": {
+          "Name": "fields{}name",
+          "Description": "fields{}description",
+          "Label": "fields{}label",
+          "Example": "fields{}example"
+        }
+      }
+    ]
+  },
+  {
+    "Type": "Sensor",
+    "Json_type": [
+      "sensors"
+    ],
+    "Key": [
+      "Name",
+      "Version"
+    ],
+    "Properties": {
+      "Description": "sensor_description",
+      "Name": "sensor_name",
+      "Version": "sensor_version",
+      "Developer": "developer",
+      "Url": "url"
+    },
+    "PropertyEntity": [
+      {
+        "Type": "Analytic",
+        "Key": [
+          "ID"
+        ],
+        "Relationship": "related",
+        "Reverse": "True",
+        "Properties": {
+          "ID": "other_coverage_id"
+        }
+      },
+      {
+        "Type": "DataModel",
+        "Key": [
+          "Label"
+        ],
+        "Properties": {
+          "Label": "mappings_new{}name"
+        },
+        "Relationship": "{}mappings_new{}action",
+        "Relationship_Properties": {
+          "Note": "mappings_new{}notes"
+        }
+      }
+    ]
+  }
+]

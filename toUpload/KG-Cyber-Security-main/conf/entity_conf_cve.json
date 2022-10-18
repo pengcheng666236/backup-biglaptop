@@ -1,0 +1,19 @@
+[
+  {
+    "Type": "CVE",
+    "Json_type": [
+      "cve"
+    ],
+    "Key": [
+      "ID"
+    ],
+    "Properties": {
+      "ID": "Name",
+      "Status": "Status",
+      "Description": "Description",
+      "References": "References",
+      "Phase": "Phase"
+    },
+    "PropertyEntity": []
+  }
+]

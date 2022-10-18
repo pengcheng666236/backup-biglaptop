@@ -1,0 +1,154 @@
+[
+  {
+    "Type": "Activity",
+    "Json_type": [
+      "activity_details"
+    ],
+    "Key": [
+      "ID"
+    ],
+    "Properties": {
+      "Name": "name",
+      "ID": "id",
+      "Description": "long_description",
+      "Type": "type"
+    },
+    "PropertyEntity": [
+      {
+        "Type": "Reference",
+        "Relationship": "refer",
+        "Key": [
+          "Url",
+          "Name"
+        ],
+        "Properties": {
+          "Name": "references{}title",
+          "Url": "references{}url",
+          "id": "references{}id"
+        }
+      },
+      {
+        "Type": "Goal",
+        "Relationship": "belong",
+        "Key": [
+          "ID"
+        ],
+        "Properties": {
+          "ID": "goals"
+        }
+      },
+      {
+        "Type": "Approache",
+        "Relationship": "belong",
+        "Key": [
+          "ID"
+        ],
+        "Properties": {
+          "ID": "approaches"
+        }
+      },
+      {
+        "Type": "Technique",
+        "Reverse": "True",
+        "Relationship": "counted",
+        "Key": [
+          "ID"
+        ],
+        "Properties": {
+          "ID": "attack_techniques{}id"
+        }
+      },
+      {
+        "Type": "Tactic",
+        "Reverse": "True",
+        "Relationship": "counted",
+        "Key": [
+          "ID"
+        ],
+        "Properties": {
+          "ID": "attack_tactics{}id"
+        }
+      },
+      {
+        "Type": "Eav",
+        "Relationship": "exposed",
+        "Key": [
+          "TacticID",
+          "Key"
+        ],
+        "Properties": {
+          "TacticID": "exposed{}id",
+          "Key": "exposed{}key",
+          "Name": "exposed{}name",
+          "Description": "exposed{}eav"
+        }
+      }
+    ]
+  },
+  {
+    "Type": "Goal",
+    "Json_type": [
+      "goal_details"
+    ],
+    "Key": [
+      "ID"
+    ],
+    "Properties": {
+      "Name": "name",
+      "ID": "id",
+      "Description": "long_description",
+      "Type": "type"
+    },
+    "PropertyEntity": [
+      {
+        "Type": "Approache",
+        "Relationship": "belong",
+        "Key": [
+          "ID"
+        ],
+        "Properties": {
+          "ID": "approaches"
+        }
+      }
+    ]
+  },
+  {
+    "Type": "Approache",
+    "Json_type": [
+      "approach_details"
+    ],
+    "Key": [
+      "ID"
+    ],
+    "Properties": {
+      "Name": "name",
+      "ID": "id",
+      "Description": "long_description",
+      "Type": "type"
+    },
+    "PropertyEntity": [
+      {
+        "Type": "Goal",
+        "Relationship": "belong",
+        "Reverse": "True",
+        "Key": [
+          "ID"
+        ],
+        "Properties": {
+          "ID": "goals"
+        }
+      },
+      {
+        "Type": "Activity",
+        "Relationship": "belong",
+        "Reverse": "True",
+        "Key": [
+          "ID"
+        ],
+        "Properties": {
+          "ID": "activities"
+        }
+      }
+    ]
+  }
+]
